@@ -34,10 +34,13 @@ cd PDF-Assistant
 Create a virtual environment :
 python -m venv venv
 source venv/bin/activate 
+
 Install dependencies:
-pip install -r requirements.txt
+  pip install -r requirements.txt
+  
 ▶️ Run the App :
-streamlit run main.py
+  streamlit run main.py
+
 
 🧪 Example Use Cases
 
@@ -49,11 +52,16 @@ Convert sections of PDFs to audio
 
 Visualize term importance using bar charts
 
+I deployed this project in streamlit community as an app :
+  Everyone can access it [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://smart-pdf-assistant-abhilashm.streamlit.app/)
+
+
 👨‍💻 Author
+
 Abhilash M
 
 GitHub: [ABHILASHM-26](https://github.com/ABHILASHM-26)
 
-LinkedIn: [linkedin.com/in/abhilashm](https://www.linkedin.com/in/abhilash-m-35ab682a2?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app)
+LinkedIn: [linkedin.com/in/abhilashm](https://www.linkedin.com/in/abhilashmellacheruvu/)
 
 Email: abhilashm9585@gmail.com
