@@ -4,15 +4,12 @@ import spacy
 from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 from gtts import gTTS
-import pyttsx3
 import tempfile
 import os
 from collections import Counter
 
-# Load spaCy model
 nlp = spacy.load("en_core_web_sm")
 
-# Theme state handling
 if "theme" not in st.session_state:
     st.session_state.theme = "Light"
 
@@ -23,14 +20,12 @@ def toggle_theme():
     st.session_state.theme = "Dark" if st.session_state.theme == "Light" else "Light"
     st.experimental_rerun()
 
-# Define colors based on theme
 bg_color = "#0e1117" if dark_mode else "#ffffff"
 text_color = "#ffffff" if dark_mode else "#000000"
 input_bg = "#262730" if dark_mode else "#f0f2f6"
 button_color = "#1f77b4" if dark_mode else "#0056b3"
 download_bg = "#1DB954" if dark_mode else "#0072E3"
 
-# Apply custom CSS for styling
 st.markdown(
     f"""
     <style>
@@ -75,12 +70,13 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-# Sidebar
 st.sidebar.title("⚙️ Settings")
 st.sidebar.button("Toggle Dark/Light Mode", on_click=toggle_theme)
+
+
 st.title("🧠 Smart PDF Assistant")
 
-# PDF Upload
+
 uploaded_file = st.file_uploader("📤 Upload a PDF file", type="pdf")
 text = ""
 
@@ -94,13 +90,13 @@ if uploaded_file:
 
     doc = nlp(text)
 
-    # Summary
+
     st.subheader("📝 Summary")
     sentences = list(doc.sents)
     summary = " ".join([str(sent) for sent in sentences[:5]])
     st.write(summary)
 
-    # Keyword Frequency Chart
+   
     st.subheader("📊 Top Keywords (Bar Chart)")
     keywords = [token.text.lower() for token in doc if token.is_alpha and not token.is_stop]
     keyword_freq = Counter(keywords)
@@ -119,7 +115,7 @@ if uploaded_file:
     else:
         st.info("No keywords found.")
 
-    # Named Entities
+    
     st.subheader("🧬 Named Entities")
     named_entities = [(ent.text, ent.label_) for ent in doc.ents]
     if named_entities:
@@ -129,24 +125,16 @@ if uploaded_file:
     else:
         st.info("No named entities found.")
 
-    # Text-to-Speech
+   
     st.subheader("🔊 Text-to-Speech")
     tts_text = st.text_area("Enter text for audio", summary)
-    tts_option = st.radio("Choose TTS Engine", ["gTTS (Online)", "pyttsx3 (Offline)"], horizontal=True)
 
     if st.button("🔈 Generate Audio"):
         try:
-            if tts_option == "gTTS (Online)":
-                tts = gTTS(tts_text)
-                with tempfile.NamedTemporaryFile(delete=False, suffix=".mp3") as tmp_file:
-                    tts.save(tmp_file.name)
-                    audio_file = tmp_file.name
-            else:
-                engine = pyttsx3.init()
-                with tempfile.NamedTemporaryFile(delete=False, suffix=".mp3") as tmp_file:
-                    engine.save_to_file(tts_text, tmp_file.name)
-                    engine.runAndWait()
-                    audio_file = tmp_file.name
+            tts = gTTS(tts_text)
+            with tempfile.NamedTemporaryFile(delete=False, suffix=".mp3") as tmp_file:
+                tts.save(tmp_file.name)
+                audio_file = tmp_file.name
 
             st.audio(audio_file, format="audio/mp3")
             with open(audio_file, "rb") as f:
@@ -156,7 +144,7 @@ if uploaded_file:
         except Exception as e:
             st.error(f"Audio generation failed: {e}")
 
-    # Export Options
+    
     st.subheader("📤 Export Options")
     st.download_button("Download Cleaned Text", text, file_name="cleaned_text.txt")
     st.download_button("Download Summary", summary, file_name="summary.txt")
