@@ -12,8 +12,7 @@ The app enables keyword extraction, named entity recognition, text summarization
 - 🧾 **Metadata & Link Extraction**
 - 🗣️ **Text-to-Speech** (Downloadable Audio in `.mp3`)
 - 📊 **Matplotlib Graph** for keyword frequency visualization
-- 💡 **Dark / Light Theme Toggle**
-
+- 💡 **Dark / Light Themes**
 
  🧰 Built With
 
@@ -37,10 +36,11 @@ python -m venv venv
 source venv/bin/activate 
 Install dependencies:
 pip install -r requirements.txt
-▶️ Run the App
-
+▶️ Run the App :
 streamlit run main.py
+
 🧪 Example Use Cases
+
 Analyze research papers or eBooks
 
 Extract insights from business reports
@@ -51,6 +51,9 @@ Visualize term importance using bar charts
 
 👨‍💻 Author
 Abhilash M
-GitHub: ABHILASHM-26
-LinkedIn: linkedin.com/in/abhilashm26
+
+GitHub: [ABHILASHM-26](https://github.com/ABHILASHM-26)
+
+LinkedIn: [linkedin.com/in/abhilashm](https://www.linkedin.com/in/abhilash-m-35ab682a2?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app)
+
 Email: abhilashm9585@gmail.com
