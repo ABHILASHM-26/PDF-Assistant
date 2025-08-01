@@ -74,7 +74,7 @@ st.sidebar.title("⚙️ Settings")
 st.sidebar.button("Toggle Dark/Light Mode", on_click=toggle_theme)
 
 
-st.title("🧠 Smart PDF Assistant")
+st.title(" Smart PDF Assistant ")
 
 
 uploaded_file = st.file_uploader("📤 Upload a PDF file", type="pdf")
@@ -116,7 +116,7 @@ if uploaded_file:
         st.info("No keywords found.")
 
     
-    st.subheader("🧬 Named Entities")
+    st.subheader("Named Entities")
     named_entities = [(ent.text, ent.label_) for ent in doc.ents]
     if named_entities:
         st.write("Detected entities:")
