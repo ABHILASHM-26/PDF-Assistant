@@ -74,7 +74,7 @@ st.sidebar.title("⚙️ Settings")
 st.sidebar.button("Toggle Dark/Light Mode", on_click=toggle_theme)
 
 
-st.title(" Smart PDF Assistant ")
+st.title("Smart PDF Assistant")
 
 
 uploaded_file = st.file_uploader("📤 Upload a PDF file", type="pdf")
