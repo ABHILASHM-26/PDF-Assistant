@@ -1,4 +1,4 @@
- 📄 Smart PDF Assistant
+## Smart PDF Assistant
 
 Smart PDF Assistant is an intelligent, interactive Streamlit-based application that allows users to upload PDF documents and perform various NLP and visualization tasks. 
 The app enables keyword extraction, named entity recognition, text summarization, text-to-speech conversion, metadata extraction, and matplotlib-based data visualization.
